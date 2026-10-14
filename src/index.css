@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-warm-ivory: #F7F6F0;
+    --primary-sage: #779B7D;
+    --primary-sage-hover: #678A6D;
+    --primary-sage-light: #E6EDE3;
+    --primary-sage-border: #C8DBC4;
+    --text-charcoal: #2D3748;
+    --text-muted: #64748B;
+    --surface-card: #FFFFFF;
+    --surface-card-subtle: #FAF9F5;
+  }
+
+  body {
+    background-color: var(--bg-warm-ivory);
+    color: var(--text-charcoal);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .font-serif-editorial {
+    font-family: 'Lora', Georgia, Cambria, 'Times New Roman', Times, serif;
+  }
+}
+
+/* Custom scrollbar for calm feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9D7CE;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8B5AA;
+}
+
+/* Gentle keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGently {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes breathCycle {
+  0%, 100% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-gentle {
+  animation: pulseGently 3s ease-in-out infinite;
+}
+
+.animate-breath {
+  animation: breathCycle 8s ease-in-out infinite;
+}
