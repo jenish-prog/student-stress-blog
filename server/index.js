@@ -279,7 +279,11 @@ if (fs.existsSync(distDir)) {
   app.get(/.*/, (_req, res) => res.sendFile(path.join(distDir, 'index.html')));
 }
 
-app.listen(PORT, () => {
-  console.log(`[mindease] API listening on http://localhost:${PORT}`);
-  console.log(`[mindease] provider=openrouter model=${MODEL} hasKey=${Boolean(API_KEY)} keyLooksValid=${keyLooksLikeOR(API_KEY)}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`[mindease] API listening on http://localhost:${PORT}`);
+    console.log(`[mindease] provider=openrouter model=${MODEL} hasKey=${Boolean(API_KEY)} keyLooksValid=${keyLooksLikeOR(API_KEY)}`);
+  });
+}
+
+export default app;
